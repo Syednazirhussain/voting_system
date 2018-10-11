@@ -1,0 +1,1 @@
+[05-Oct-2018 02:04:38 UTC] PHP Fatal error:  Class 'Illuminate\Foundation\Http\Kernel' not found in /home/ehtesham/public_html/app/Http/Kernel.php on line 7

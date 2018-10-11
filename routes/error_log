@@ -1,0 +1,16 @@
+[09-Oct-2018 01:31:21 UTC] PHP Fatal error:  Uncaught Error: Class 'Route' not found in /home/ehtesham/public_html/routes/api.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/ehtesham/public_html/routes/api.php on line 16
+[09-Oct-2018 02:47:08 UTC] PHP Fatal error:  Uncaught Error: Class 'Route' not found in /home/ehtesham/public_html/routes/web.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/ehtesham/public_html/routes/web.php on line 14
+[09-Oct-2018 17:56:32 UTC] PHP Fatal error:  Uncaught Error: Class 'Artisan' not found in /home/ehtesham/public_html/routes/console.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/ehtesham/public_html/routes/console.php on line 16
+[10-Oct-2018 06:49:51 UTC] PHP Fatal error:  Uncaught Error: Class 'Broadcast' not found in /home/ehtesham/public_html/routes/channels.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/ehtesham/public_html/routes/channels.php on line 14

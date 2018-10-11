@@ -1,0 +1,7 @@
+[09-Oct-2018 17:17:43 UTC] PHP Fatal error:  Class 'Illuminate\Foundation\Http\Middleware\TrimStrings' not found in /home/ehtesham/public_html/app/Http/Middleware/TrimStrings.php on line 7
+[10-Oct-2018 12:09:08 UTC] PHP Fatal error:  Class 'Fideloper\Proxy\TrustProxies' not found in /home/ehtesham/public_html/app/Http/Middleware/TrustProxies.php on line 8
+[10-Oct-2018 12:10:02 UTC] PHP Fatal error:  Class 'Illuminate\Cookie\Middleware\EncryptCookies' not found in /home/ehtesham/public_html/app/Http/Middleware/EncryptCookies.php on line 7
+[10-Oct-2018 12:10:14 UTC] PHP Fatal error:  Class 'Illuminate\Foundation\Http\Middleware\VerifyCsrfToken' not found in /home/ehtesham/public_html/app/Http/Middleware/VerifyCsrfToken.php on line 7
+[11-Oct-2018 04:11:57 UTC] PHP Fatal error:  Class 'Illuminate\Foundation\Http\Middleware\TrimStrings' not found in /home/ehtesham/public_html/app/Http/Middleware/TrimStrings.php on line 7
+[11-Oct-2018 04:12:12 UTC] PHP Fatal error:  Class 'Fideloper\Proxy\TrustProxies' not found in /home/ehtesham/public_html/app/Http/Middleware/TrustProxies.php on line 8
+[11-Oct-2018 04:13:32 UTC] PHP Fatal error:  Class 'Illuminate\Cookie\Middleware\EncryptCookies' not found in /home/ehtesham/public_html/app/Http/Middleware/EncryptCookies.php on line 7

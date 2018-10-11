@@ -1,0 +1,5 @@
+[10-Oct-2018 12:11:32 UTC] PHP Fatal error:  Class 'InfyOm\Generator\Common\BaseRepository' not found in /home/ehtesham/public_html/app/Repositories/voteRepository.php on line 17
+[10-Oct-2018 12:11:44 UTC] PHP Fatal error:  Class 'InfyOm\Generator\Common\BaseRepository' not found in /home/ehtesham/public_html/app/Repositories/ElectionRepository.php on line 17
+[10-Oct-2018 12:11:56 UTC] PHP Fatal error:  Class 'InfyOm\Generator\Common\BaseRepository' not found in /home/ehtesham/public_html/app/Repositories/ParticipantRepository.php on line 17
+[10-Oct-2018 12:11:56 UTC] PHP Fatal error:  Class 'InfyOm\Generator\Common\BaseRepository' not found in /home/ehtesham/public_html/app/Repositories/PoliticalGroupRepository.php on line 17
+[10-Oct-2018 12:11:57 UTC] PHP Fatal error:  Class 'InfyOm\Generator\Common\BaseRepository' not found in /home/ehtesham/public_html/app/Repositories/ElectionParticipantRepository.php on line 17

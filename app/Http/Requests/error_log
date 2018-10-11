@@ -1,0 +1,2 @@
+[10-Oct-2018 12:10:24 UTC] PHP Fatal error:  Class 'Illuminate\Foundation\Http\FormRequest' not found in /home/ehtesham/public_html/app/Http/Requests/CreateElectionRequest.php on line 8
+[10-Oct-2018 12:10:57 UTC] PHP Fatal error:  Class 'Illuminate\Foundation\Http\FormRequest' not found in /home/ehtesham/public_html/app/Http/Requests/UpdateElectionRequest.php on line 8

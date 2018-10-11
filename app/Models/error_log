@@ -1,0 +1,4 @@
+[08-Oct-2018 21:49:13 UTC] PHP Fatal error:  Class 'Eloquent' not found in /home/ehtesham/public_html/app/Models/vote.php on line 20
+[10-Oct-2018 12:09:04 UTC] PHP Fatal error:  Class 'Eloquent' not found in /home/ehtesham/public_html/app/Models/Election.php on line 22
+[10-Oct-2018 12:09:34 UTC] PHP Fatal error:  Class 'Eloquent' not found in /home/ehtesham/public_html/app/Models/Participant.php on line 22
+[10-Oct-2018 12:10:20 UTC] PHP Fatal error:  Class 'Eloquent' not found in /home/ehtesham/public_html/app/Models/PoliticalGroup.php on line 22

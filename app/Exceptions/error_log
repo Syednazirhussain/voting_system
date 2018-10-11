@@ -1,0 +1,1 @@
+[10-Oct-2018 12:09:30 UTC] PHP Fatal error:  Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/ehtesham/public_html/app/Exceptions/Handler.php on line 8
