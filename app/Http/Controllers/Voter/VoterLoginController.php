@@ -113,10 +113,8 @@ class VoterLoginController extends Controller
 
 
  public function authenticate( Request $request )
+ {
 
-    {
-
-        
 
         $this->validate($request, [
 
@@ -136,23 +134,9 @@ class VoterLoginController extends Controller
 
         $email =  $request->email;
 
-        
-
-        //$password =   $request->password;
-
-        
-
         $ssn    = str_replace("-", "", $request->ssn);
 
         $phone  = str_replace("-", "", $request->mobile_no);
-
-        
-
-
-
-
-
-
 
         $user = User::where( 'email', $email )->where( 'ssn', $ssn )->where( 'mobile_no', $phone )->first();
 
@@ -161,14 +145,6 @@ class VoterLoginController extends Controller
 
 
         if( $user ) {
-
-
-
-           
-
-        
-
-           
 
              $success   = 1;
 
@@ -237,245 +213,84 @@ class VoterLoginController extends Controller
     {
 
         $phone =  $request->phone;
-
-       
-
         $ssn   =  $request->ssn;
-
-        
-
         $userId = $request->userId;
 
-
-
-
+        $data = [
+          'phone'   => $phone,
+          'userid'  => $ssn,
+          'key'     => '9b0ce7bf76e864c1d27985d952ef8536fe2c94ea7hPTcVTJKLUZrI3KCn0mNhM0e',
+          'lifetime'=> '300'
+        ];
 
         $ch = curl_init('https://textbelt.com/otp/generate');
-
-        $data = array(
-
-          'phone'   => $phone,
-
-          'userid'  => $ssn,
-
-          'key'     => '9b0ce7bf76e864c1d27985d952ef8536fe2c94ea7hPTcVTJKLUZrI3KCn0mNhM0e',
-
-          'lifetime'=> '300',
-
-          // message='Nuclear launch code: $OTP! Use it to login.'
-
-        );
-
-
-
         curl_setopt($ch, CURLOPT_POST, 1);
-
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-
-
         $response = curl_exec($ch);
-
         curl_close($ch);
 
 
+        $userData = [
+            'userId'    =>  $userId,
+            'ssn' => $ssn,
+            'method' => 'phone'
+        ];
 
-        
+        $view    =  view('voter.auth.ajax_verify_form',$userData);
 
-                         
+        $content    = $view->render();
 
-                         $userData      = ['userId'=>$userId, 'ssn' => $ssn, 'method' => 'phone'];
+        $response = json_decode($response,1);
 
-                         
-
-                         $view    =  view('voter.auth.ajax_verify_form',$userData);
-
-            
-
-                         $content    = $view->render();
-
-                         
-
-                         // $response['content'] = $content;
-
-
-
-                         $response = json_decode($response,1);
-
-
-
-
-
-                         // print_r($response);
-
-                         // die;
-
-
-
-                         
-
-                         if($response['success'] != 0)
-
-                         {
-
-
-
-                            
-
-                            
-
-                        return response()->json( ['success' => 1, 'content' => $content, 'response' => $response ] ) ;                            
-
-                         }
-
-
-
-
-
-                        //return response()->json( ['content' => $content ] ) ;
-
-
-
-
-
-
-
-        //return $response;
-
-    }   //OTP BY PHONE 
-
-
-
-
-
-
-
-    //OTP BY EMAIL
-
-
-
-
-
-    public function otpEmail(Request $request)
-
-    {   
-
-        $email  = $request->email;
-
-        $token  = $request->token;
-
-        $userId = $request->userId;
-
-        $ssn    = $request->ssn;
-
-
-
-        
-
-
-
-        $data  = [ 'user' => $email, 'token' => $token, 'userId' =>$userId ];
-
-
-
-        
-
-         Mail::send('voter.auth.send' , $data, function($message) use( $data ) {
-
-            
-
-
-
-
-
-             $message->to($data['user'])->subject
-
-                ('OTP CODE -- E VOTING SYSTEM');
-
-             
-
-        }); 
-
-
-
-        
-
-        if( !Mail::failures() ) {
-
-
-
-
-
-
-
-                $tokenUpdate = User::where('id',$userId)->update(['otp_token' => $token]);
-
-
-
-               if($tokenUpdate)
-
-                       {
-
-
-
-                         $success = 1;
-
-                         $message = 'Mail Sent';
-
-
-
-                         $userData      = ['userId'=>$userId, 'ssn' => $ssn, 'method' => 'email'];
-
-                         
-
-                         $view    =  view('voter.auth.ajax_verify_form',$userData);
-
-            
-
-                         $content    = $view->render();
-
-                         
-
-                        return response()->json( ['success' => $success, 'message' => $message, 'content' => $content ] ) ;
-
-                            
-
-                        
-
-                       } 
-
-        
-
-        }else{
-
-
-
-
-
-
-
-        
-
-        
-
-         $success = 0;
-
-         $message = 'Something went wrong';
-
-         
-
-        return response()->json( ['success' => $success, 'message' => $message ] ) ;
-
-
+        if($response['success'] != 0)
+        {
+            return response()->json( ['success' => 1, 'content' => $content, 'response' => $response ] ) ;                            
+        }
 
     }
 
+    public function otpEmail(Request $request)
+    {   
 
+        $email  = $request->email;
+        $token  = $request->token;
+        $userId = $request->userId;
+        $ssn    = $request->ssn;
 
-        
+        $data  = [ 
+            'user' => $email,
+            'token' => $token,
+            'userId' =>$userId 
+        ];
 
+        Mail::send('voter.auth.send' , $data, function($message) use( $data ) {
+             $message->to($data['user'])->subject('OTP CODE -- E VOTING SYSTEM');
+        }); 
+
+        if( !Mail::failures() ) 
+        {
+
+            $tokenUpdate = User::where('id',$userId)->update(['otp_token' => $token]);
+
+            if($tokenUpdate)
+            {
+                $success = 1;
+                $message = 'Mail Sent';
+                $userData      = ['userId'=>$userId, 'ssn' => $ssn, 'method' => 'email'];
+                $view    =  view('voter.auth.ajax_verify_form',$userData);
+                $content = $view->render();
+                return response()->json( ['success' => $success, 'message' => $message, 'content' => $content ] ) ;
+            }
+
+        }
+        else
+        {
+
+            $success = 0;
+            $message = 'Something went wrong';
+            return response()->json( ['success' => $success, 'message' => $message ] ) ;
+        }
     }
 
 

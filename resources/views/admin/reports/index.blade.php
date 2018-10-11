@@ -357,10 +357,6 @@
         // alert("EMPTY")
     }else{
 
-
-   
-
-
     var ocs     = [];
     var ocp     = [];
     

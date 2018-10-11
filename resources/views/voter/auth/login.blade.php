@@ -260,13 +260,10 @@
 
           });
 
-          
-
-
+        
           $(document).keypress(function(e) {
               if(e.which == 13) {
                   $( "#loginForm" ).submit();
-                  //$( "#otpForm" ).submit();
               }
           });
 
@@ -313,19 +310,13 @@
                    ssn   = data.ssn;
                    email = data.email;
 
-                   uId   = data.uid;
+                  uId   = data.uid;
 
-                   
-                   
-                        //alert(otp);
+                  $("#userId").val(uId);
 
-                        $("#userId").val(uId);
+                  $("#userSsn").val(ssn);
 
-                        $("#userSsn").val(ssn);
-
-
-                        
-                        $( "#formContent" ).html(data.pageContent);
+                  $( "#formContent" ).html(data.pageContent);
 
                         notificationMethod();
 
